@@ -1,0 +1,208 @@
+/* Global css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+  --background: #949596;
+  --danger: #b44134;
+  --welcome: #10435f;
+  --win: #179da1;
+  --computer: #ee8422;
+}
+
+body {
+    height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--background);
+}
+
+button {
+    cursor: pointer;
+}
+
+h1 {
+    margin-top: 3rem;
+}
+/* Overlay section */
+#overlay {
+    width: 100%;
+    height: 100%;
+    min-height: 620px;
+    background-color: var(--welcome);
+    color: #fff;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#overlay p {
+    margin-top: 1.1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#options {
+    margin-top: 1.5rem;
+}
+
+#options button {
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    background-color: var(--win);
+    color: azure;
+    padding: 1rem 2rem;
+    font-size: 1.025rem;
+    font-weight: bold;
+}
+
+#options button:hover {
+    border: 2px solid #fff;
+}
+
+/* Result page section */
+#result-page {
+    width: 100%;
+    height: 100%;
+    min-height: 620px;
+    color: #000;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#result-page p {
+    text-align: center;
+    margin-top: 1.1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#play-again {
+    margin-top: 5rem;
+    border: none;
+    background-color: transparent;
+    color: azure;
+    padding: 1rem 2rem;
+    font-size: 1.025rem;
+    font-weight: bold;
+}
+
+/* Game section */
+#game {
+    margin-top: 3rem;
+    width: 100%;
+}
+
+#score {
+    width: 100%;
+    height: 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#round-number {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+#round-result {
+    font-size: 1.1rem;
+}
+
+#result {
+    font-size: 1.25rem;
+    display: flex;
+    width: 100%;
+    padding: 0 2rem;
+    justify-content: space-between;
+}
+
+#player-points p, #computer-points p {
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.player-point {
+    background-color: var(--win);
+}
+
+.computer-point {
+    background-color: var(--danger);
+}
+
+.score_circle {
+    display: inline-flex;
+    border: 1px solid black;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+}
+
+/* Container section */
+#container {
+    display: flex;
+    height: 300px;
+}
+
+#player-section {
+    width: 50%;
+    height: 20rem;
+    background-color: var(--welcome);
+}
+
+#player-select {
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+}
+
+#player-options {
+    height: 40%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 2rem;
+}
+
+#player-options p {
+    cursor: pointer;
+}
+
+#computer-section {
+    width: 50%;
+    height: 20rem;
+    background-color: var(--computer);
+}
+
+#computer-select {
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+}
+
+#computer-logic {
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    text-align: center;
+}

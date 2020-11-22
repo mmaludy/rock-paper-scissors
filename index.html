@@ -3,62 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock-Paper-Scissors Game</title>
-    <style>
-        body {
-            background-color: #666;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <script>
-        function computerPlay() {
-            const options = ['rock', 'paper', 'scissors'];
-            let computerSelection = options[Math.floor(Math.random()*options.length)];
-            return computerSelection;
-        }
+    <h1>Rock - Paper - Scissors</h1>
+    <div id="overlay">
+        <h1>Rock - Paper - Scissors</h1>
+        <p>Please select number of rounds</p>
 
-        function playerPlay() {
-            let playerSelection = prompt("What is your select? (rock/paper/scissors)").toLowerCase();
-            while (playerSelection != "rock" && playerSelection != "paper" && playerSelection != "scissors") {
-                alert("Please enter a correct value!");
-                playerSelection = prompt("What is your select? (rock/paper/scissors)").toLowerCase();
-            }
-            return playerSelection;
-        }
+        <div id="options">
+            <button id="bo3">Best of 3</button>
+            <button id="bo5">Best of 5</button>
+        </div>
 
-        function playRound(playerSelection, computerSelection) {
-            if (playerSelection === computerSelection) {
-                return "It's a tie!";
-            }
+    </div>
+    <div id="result-page" style="display: none;">
+        <p id="end-message"></p>
+        <button id="play-again">Play Again</button>
+    </div>
+    <div id="game">
+        <div id="score">
+            <p id="round-number">Round 1</p>
+            <div id="result">
+                <div id="player-points">
+                    <p>Score</p>
+                    <div class="score_circle"></div>
+                    <div class="score_circle"></div>
+                    <div class="score_circle" style="display: none;"></div>
+                </div>
+                <div id="round-result"></div>
+                <div id="computer-points">
+                    <p>Score</p>
+                    <div class="score_circle"></div>
+                    <div class="score_circle"></div>
+                    <div class="score_circle" style="display: none;"></div>
+                </div>
+            </div>
+        </div>
+        <div id="container">
+            <div id="player-section">
+                <div id="player-select">
+                    <p></p>
+                </div>
+                <div id="player-options">
+                    <p id="rock">✊</p>
+                    <p id="paper">📄</p>
+                    <p id="scissors">✂</p>
+                </div>
+            </div>
+            <div id="computer-section">
+                <div id="computer-select">
+                    <p></p>
+                </div>
+               <div id="computer-logic">
+                <p>Computer logic is just generating a random number</p>
+               </div>
+            </div>
 
-            switch(true) {
-                case playerSelection == "rock" && computerSelection == "scissors":
-                case playerSelection == "paper" && computerSelection == "rock":
-                case playerSelection == "scissors" && computerSelection == "paper":
-                    return `You won! ${playerSelection} beats ${computerSelection}!`;
-                    break; 
+        </div>
+    </div>
 
-                default:
-                    return `You lose! ${computerSelection} beats ${playerSelection}!`;
-                    break;
-
-            }
-        }
-
-        function game() {
-            for (let i = 0; i<5; i++) {
-                playerSelection = playerPlay();
-                computerSelection = computerPlay();
-
-                result = playRound(playerSelection, computerSelection)
-                console.log(result);
-            }
-        }
-        game();
-
-    </script>
-
-    
+    <script src="app.js"></script>
 </body>
 </html>
