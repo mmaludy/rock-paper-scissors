@@ -97,12 +97,75 @@ function gameLogic3() {
     }
 }
 
+function gameLogic5() {
+    let playerPlay = playerMove();
+    let computerPlay = computerMove();
+
+    switch(true) {
+        case playerPlay == computerPlay:
+            roundResult.innerHTML = "It's a tie!"
+            break;
+        case playerPlay == rockValue && computerPlay == scissorsValue:  
+        case playerPlay == paperValue && computerPlay == rockValue:  
+        case playerPlay == scissorsValue && computerPlay == paperValue:
+            roundResult.innerHTML = "You win this round!"
+            playerScoreCircle[moveRightPlayer].classList.toggle("player-point")
+            moveRightPlayer++;
+            break;
+        default: 
+        roundResult.innerHTML = "You lost this round!"
+        computerScoreCircle[moveRightComputer].classList.toggle("computer-point")
+        moveRightComputer++;
+        break;
+    }
+
+    if (moveRightPlayer == 3) {
+        resultPage.style.display = "flex";
+        resultPage.style.backgroundColor = "var(--win)";
+        endMessage.innerHTML = `${moveRightPlayer} - ${moveRightComputer} for you in ${numberOfRound} rounds! You win!`
+    } else if (moveRightComputer == 3) {
+        resultPage.style.display = "flex";
+        resultPage.style.backgroundColor = "var(--danger)";
+        endMessage.innerHTML = `${moveRightPlayer} - ${moveRightComputer} for opponent in ${numberOfRound} rounds! You lost!`
+    }
+}
+
 function startGame() {
     overlay.style.display = "none";
+    playerScoreCircle[2].style.display = "none";
+    computerScoreCircle[2].style.display = "none";
+}
+
+function startGame5() {
+    overlay.style.display = "none";
+    playerScoreCircle[2].style.display = "inline-flex";
+    computerScoreCircle[2].style.display = "inline-flex";
 }
 
 function restartGame() {
     resultPage.style.display = "none";
+    overlay.style.display = "flex";
+    roundResult.innerHTML = "";
+    playerSelection.innerHTML = "";
+    computerSelection.innerHTML = "";
+    playerScoreCircle[2].style.display = "inline-flex";
+    computerScoreCircle[2].style.display = "inline-flex";
+    
+    playerScoreCircle.forEach(e => {
+        if (e.classList.contains("player-point")){
+          e.classList.remove("player-point");
+        }
+      });
+      computerScoreCircle.forEach(e => {
+        if (e.classList.contains("computer-point")){
+          e.classList.remove("computer-point");
+        }
+      });
+      
+    moveRightPlayer = 0;
+    moveRightComputer = 0;
+    numberOfRound = 1;
+    roundNumber.innerHTML = `Round ${numberOfRound}`;
 }
 
 rock.addEventListener("click", updatePlayerView)
@@ -110,5 +173,5 @@ paper.addEventListener("click", updatePlayerView)
 scissors.addEventListener("click", updatePlayerView)
 
 bestOf3.addEventListener("click", startGame);
-bestOf5.addEventListener("click", startGame);
+bestOf5.addEventListener("click", startGame5);
 playAgain.addEventListener("click", restartGame);
