@@ -121,6 +121,7 @@ h1 {
 
 #round-result {
     font-size: 1.1rem;
+    white-space: nowrap;
 }
 
 #result {
@@ -206,3 +207,28 @@ h1 {
     font-size: 1rem;
     text-align: center;
 }
+
+/* Media queries */
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.7rem;
+    }
+
+    #round-result {
+        font-size: 1rem;
+    }
+
+    #computer-section, #player-section {
+        height: 15rem;
+    }
+
+    .score_circle {
+        width: 1rem;
+        height: 1rem;
+    }
+
+    #player-select, #computer-select {
+        font-size: 3rem;
+    }
+  }
