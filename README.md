@@ -23,3 +23,7 @@ When the game is over, the user is informed of the winner, the score and the num
 ![Side view](https://i.imgur.com/cwpzrk3.png)
 
 This website is fully compatible with mobile devices.
+
+---
+
+[Go live here](https://mmaludy.github.io/rock-paper-scissors/)
